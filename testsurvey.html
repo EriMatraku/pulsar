@@ -1,0 +1,22 @@
+<!-- Your platform (jquery) scripts. -->
+<script   src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
+<!--<script src="test.js"></script>-->
+<script src="https://surveyjs.azureedge.net/1.0.49/survey.jquery.min.js"></script>
+<div id="surveyContainer"></div>
+<script>
+Survey.Survey.cssType = "bootstrap";
+
+var surveyJSON = {pages:[{name:"page1",elements:[{type:"radiogroup",name:"question1",title:"What is your gender?",choices:[{value:"item1",text:"Male"},{value:"item2",text:"Female"}]}]},{name:"page2",elements:[{type:"boolean",name:"question2",label:"Are you a smoker?"}]},{name:"page3",elements:[{type:"dropdown",name:"question3",title:"What is your age?",choices:[{value:"item1",text:"1"},{value:"item2",text:"2"},{value:"item3",text:"3"},{value:"item4",text:"4"},{value:"item5",text:"5"},{value:"item6",text:"6"},{value:"item7",text:"7"},{value:"item8",text:"8"},{value:"item9",text:"9"},{value:"item10",text:"10"},{value:"item11",text:"11"},{value:"item12",text:"12"},{value:"item13",text:"13"},{value:"item14",text:"14"},{value:"item15",text:"15"},{value:"item16",text:"16"},{value:"item17",text:"17"},{value:"item18",text:"18"},{value:"item19",text:"19"},{value:"item20",text:"20"},{value:"item21",text:"21"},{value:"item22",text:"22"},{value:"item23",text:"23"},{value:"item24",text:"24"},{value:"item25",text:"25"},{value:"item26",text:"26"},{value:"item27",text:"27"},{value:"item28",text:"28"},{value:"item29",text:"29"},{value:"item30",text:"30"},{value:"item31",text:"31"},{value:"item32",text:"32"},{value:"item33",text:"33"},{value:"item34",text:"34"},{value:"item35",text:"35"},{value:"item36",text:"36"},{value:"item37",text:"37"},{value:"item38",text:"38"},{value:"item39",text:"39"},{value:"item40",text:"40"},{value:"item41",text:"41"},{value:"item42",text:"42"},{value:"item43",text:"43"},{value:"item44",text:"44"},{value:"item45",text:"45"},{value:"item46",text:"46"},{value:"item47",text:"47"},{value:"item48",text:"48"},{value:"item49",text:"49"},{value:"item50",text:"50"},{value:"item51",text:"51"},{value:"item52",text:"52"},{value:"item53",text:"53"},{value:"item54",text:"54"},{value:"item55",text:"55"},{value:"item56",text:"56"},{value:"item57",text:"57"},{value:"item58",text:"58"},{value:"item59",text:"59"},{value:"item60",text:"60"},{value:"item61",text:"61"},{value:"item62",text:"62"},{value:"item63",text:"63"},{value:"item64",text:"64"},{value:"item65",text:"65"},{value:"item66",text:"66"},{value:"item67",text:"67"},{value:"item68",text:"68"},{value:"item69",text:"69"},{value:"item70",text:"70"},{value:"item71",text:"71"},{value:"item72",text:"72"},{value:"item73",text:"73"},{value:"item74",text:"74"},{value:"item75",text:"75"},{value:"item76",text:"76"},{value:"item77",text:"77"},{value:"item78",text:"78"},{value:"item79",text:"79"},{value:"item80",text:"80"},{value:"item81",text:"81"},{value:"item82",text:"82"},{value:"item83",text:"83"},{value:"item84",text:"84"},{value:"item85",text:"85"},{value:"item86",text:"86"},{value:"item87",text:"87"},{value:"item88",text:"88"},{value:"item89",text:"89"},{value:"item90",text:"90"},{value:"item91",text:"91"},{value:"item92",text:"92"},{value:"item93",text:"93"},{value:"item94",text:"94"},{value:"item95",text:"95"},{value:"item96",text:"96"},{value:"item97",text:"97"},{value:"item98",text:"98"},{value:"item99",text:"99"},{value:"item100",text:"100"}]}]},{name:"page4",elements:[{type:"text",name:"question4",title:"What is your sistolic blood pressure?"}]},{name:"page5",elements:[{type:"text",name:"question5",title:"What is your colesterol?"}]}]}
+
+function sendDataToServer(survey) {
+    //send Ajax request to your web server.
+    alert("The results are:" + JSON.stringify(survey.data));
+     window.location.href="testcardiaco.html?data="+JSON.stringify(survey.data);
+}
+
+var survey = new Survey.Model(surveyJSON);
+$("#surveyContainer").Survey({
+    model: survey,
+    onComplete: sendDataToServer
+});
+</script>
